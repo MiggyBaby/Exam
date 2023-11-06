@@ -38,7 +38,7 @@
             <h2>Shifty Place</h2>
             <p>A Guy Lost in an Unknown Place.</p>
             <h3>Price: ₱499</h3>
-            <button onclick = buttonMode()>Add to Cart</button>
+            <button onclick="addToCart('Shifty Place', 499)">Add to Cart</button>
         </li>
 
         <li class="product">
@@ -46,7 +46,7 @@
             <h2>Mysterious</h2>
             <p> Stranded in a Mysterious Place</p>
             <h3>Price: ₱499</h3>
-            <button onclick = buttonMode()>Add to Cart</button>
+            <button onclick="addToCart('Mysterious', 499)">Add to Cart</button>
         </li>
 
         <li class="product">
@@ -54,7 +54,7 @@
             <h2>Living The Undead</h2>
             <p> A Witty Name for a T-Shirt</p>
             <h3>Price: ₱499</h3>
-            <button onclick = buttonMode()>Add to Cart</button>
+            <button onclick="addToCart('Living The Undead', 499)">Add to Cart</button>
         </li>
 
         <li class="product">
@@ -62,7 +62,7 @@
             <h2>Skulled Titan</h2>
             <p>A Combination of A Titan and a Skull</p>
             <h3>Price: ₱399</h3>
-            <button onclick = buttonMode()>Add to Cart</button>
+            <button onclick="addToCart('Skulled Titan', 399)">Add to Cart</button>
         </li>
 
         <li class="product">
@@ -70,7 +70,7 @@
             <h2>Yakuza Dragon</h2>
             <p>Yakuza and a Dragon as One.</p>
             <h3>Price: ₱399</h3>
-            <button onclick = buttonMode()>Add to Cart</button>
+            <button onclick="addToCart('Yakuza Dragon', 399)">Add to Cart</button>
         </li>
 
         <li class="product">
@@ -78,7 +78,7 @@
             <h2>Messy Doodle</h2>
             <p>Tangled All Over The Place.</p>
             <h3>Price: ₱499</h3>
-            <button onclick = buttonMode()>Add to Cart</button>
+            <button onclick="addToCart('Messy Doodle', 499)">Add to Cart</button>
         </li>
 
         <li class="product">
@@ -86,7 +86,7 @@
             <h2>Beauty In Colors</h2>
             <p>Let Them Know Who You Are.</p>
             <h3>Price: ₱399</h3>
-            <button onclick = buttonMode()>Add to Cart</button>
+            <button onclick="addToCart('Beauty In Colors', 399)">Add to Cart</button>
         </li>
 
         <li class="product">
@@ -94,20 +94,23 @@
             <h2>SpaceTronaut</h2>
             <p>Austronaut in Space.</p>
             <h3>Price: ₱599</h3>
-            <button onclick = "buttonMode('SpaceTronaut', 599)">Add to Cart</button>
+            <button onclick="addToCart('Space Tronaut', 599)">Add to Cart</button>
         </li>
 
-        <li class = "product">
-            <button class = "newItem" onclick = "buttonMode()"> Add an Item +</button>
+        <li class="product">
+            <button class="newItem" onclick="buttonMode()">Add an Item +</button>
         </li>
-
-
     </ul>
 
-    
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </ul>
+    </div>
 
     <footer>
-        <p>&copy; The Official StreetWise OverSize -2023-</p>
+        <p>&copy; The Official StreetWise OverSize - 2023 -</p>
     </footer>
 </body>
 </html>

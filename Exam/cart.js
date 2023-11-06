@@ -1,51 +1,42 @@
-// Retrieve the cart items from local storage
-const cartItemsJSON = localStorage.getItem("cartItems");
-const cartItems = cartItemsJSON ? JSON.parse(cartItemsJSON) : [];
+// cart.js
+document.addEventListener('DOMContentLoaded', () => {
+    const cartItemsList = document.getElementById("cart-items");
+    const totalCostDisplay = document.getElementById("total-cost");
 
+    // Retrieve cart items from local storage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Display the cart contents
-const cartContent = document.getElementById("cartContent");
+    // Display cart items on the page
+    let totalCost = calculateTotalCost(cart);
+    totalCostDisplay.textContent = `Total Ordered: ₱${totalCost}`;
 
+    for (let i = 0; i < cart.length; i++) {
+        const item = cart[i];
 
-if (cartItems.length === 0) {
-    cartContent.innerHTML = "<p> Your cart is empty. </p>";
-} else {
-    const cartList = document.createElement("ul");
+        // ... (other code for displaying items)
 
+        // Calculate the total cost
+        totalCost += item.price * item.quantity;
 
-    cartItems.forEach((item) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `Product Name: ${item.name}, Price: $${item.price.toFixed(2)}`;
-        cartList.appendChild(listItem);
-    });
+        // Append elements to the item container
+        // ...
 
+        cartItemsList.appendChild(itemContainer);
+    }
 
-    cartContent.appendChild(cartList);
+    // Update the total cost
+    totalCostDisplay.textContent = `Total Ordered: ₱${totalCost}`;
+    saveCartItems(cart);
+});
+
+function calculateTotalCost(cart) {
+    return cart.reduce((total, item) => {
+        const price = parseInt(item.price, 10);
+        if (!isNaN(price) && item.quantity >= 0) {
+            return total + price * item.quantity;
+        }
+        return total;
+    }, 0);
 }
 
-
-function confirmCart() {
-    // Notification for success order
-    alert("Hehehehehe, thank you!")
-    // Remove cart items from local storage
-    localStorage.removeItem("cartItems");
-
-
-    // Refresh the page to update the cart content
-    location.reload();
-}
-
-
-function clearCart() {
-    // Notification for clearing order
-    alert("Clear order successful!");
-    // Remove cart items from local storage
-    localStorage.removeItem("cartItems");
-
-
-    // Refresh the page to update the cart content
-    location.reload();
-}
-
-
-
+// ... (other functions like saveCartItems)

@@ -1,31 +1,22 @@
-function buttonMode(){
-    alert("COMING SOON")
-}
-// Define a function to add items to the cart
-function addToCart(itemName, price) {
-    // Retrieve the current cart from local storage (if it exists)
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+// main.js
+function addToCart(productName, price) {
+    const item = { productName, price };
 
-    // Add the item to the cart
-    cart.push({ itemName, price });
+    // Retrieve the existing cart items from local storage or initialize an empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Store the updated cart in local storage
+    // Add the new item to the cart
+    cart.push(item);
+
+    // Save the updated cart in local storage
     localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Update the cart button to show the number of items in the cart
+    updateCartButton();
 }
 
-// Function to initialize the cart when the page loads
-function initializeCart() {
-    // Retrieve the cart from local storage (if it exists)
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Display the cart contents (you can customize this)
-    var cartContent = document.getElementById('cart-content');
-    cartContent.innerHTML = ''; // Clear the previous content
-
-    cart.forEach(function (item, index) {
-        cartContent.innerHTML += `<p>${item.itemName} - Price: ₱${item.price}</p>`;
-    });
+function updateCartButton() {
+    const cartButton = document.querySelector('.cart-button');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartButton.textContent = `View Cart (${cart.length})`;
 }
-
-// Call the initializeCart function when the page loads
-initializeCart();
