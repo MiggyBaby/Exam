@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Check login credentials
         if (username === "admin" && password === "admin") {
             // If login is successful for admin, redirect to admin page
-            window.location.href = "home2.html";
+            window.location.href = "home2.php";
         } else if (username === "student1" && password === "1234") {
             // If login is successful for student1, redirect to student1 page
-            window.location.href = "home.html";
+            window.location.href = "home.php";
             
         } else {
             // If login fails, display an error message

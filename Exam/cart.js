@@ -94,3 +94,47 @@ function saveCartItems(cart) {
     // Save the updated cart in local storage
     localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cartItemsList = document.getElementById("cart-items");
+    const totalCostDisplay = document.getElementById("total-cost");
+    const checkoutForm = document.getElementById("checkout-form");
+    const addressInput = document.getElementById("address");
+
+    // Retrieve cart items from local storage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // ...
+
+    // Event listener for the checkout form submission
+    checkoutForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const address = addressInput.value;
+        if (cart.length === 0) {
+            alert("Your cart is empty. Please add items to your cart before checking out.");
+        } else if (!address) {
+            alert("Please enter a valid shipping address.");
+        } else {
+            // Proceed with the order, and you can record the address here
+            alert(`Thank you for your order! Your items will be shipped to: ${address}`);
+            clearCart(); // You can implement this function to clear the cart
+            
+
+            
+            // Add a timer to redirect to the "thank you" page after 3 seconds
+            setTimeout(() => {
+                window.location.href = "home2.php"; // Change the URL to the actual "thank you" page
+            }, 2000); // 2000 milliseconds (2 seconds)
+        }
+    });
+
+    // ...
+
+    // Rest of your code to display and update the cart items
+});
+
+function clearCart() {
+    // Implement this function to clear the cart
+    // You can reset the cart array to an empty array and update the total cost display
+}
+
